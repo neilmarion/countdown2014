@@ -1,0 +1,18 @@
+staging:
+  adapter: postgresql
+  encoding: unicode 
+  host: localhost
+  database: countdown2014_development 
+  pool: 5
+  username: 
+  password: 
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: countdown2014_test 
+  pool: 5
+  username:
+  password: 
+
