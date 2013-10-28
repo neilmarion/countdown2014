@@ -60,6 +60,7 @@ group :test do
   gem 'webmock'
   gem 'capybara'
   gem 'factory_girl'
+  gem 'guard', '~> 2.1.0'
   gem 'guard-rspec'
   gem 'shoulda'
   gem 'launchy'
