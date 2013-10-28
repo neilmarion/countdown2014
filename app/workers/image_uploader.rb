@@ -8,6 +8,6 @@ class ImageUploader
       graph = Koala::Facebook::API.new(access_token) 
       graph.put_picture("#{Rails.root}/tmp/images/#{file_name}.jpg", {'message'=> 'test'})
 
-      #ProcessImage.remove_photo(file_name)
+      ProcessImage.remove_photo(file_name)
   end
 end
