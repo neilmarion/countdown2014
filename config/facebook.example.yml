@@ -1,0 +1,10 @@
+facebook: &facebook
+  key: 
+  secret: 
+  callback_url: 
+
+development:
+  <<: *facebook 
+test:
+  <<: *facebook 
+  

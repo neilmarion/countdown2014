@@ -46,7 +46,7 @@ gem 'devise'
 gem 'koala'
 gem 'resque', :require => "resque/server"
 
-gem 'capistrano'
+gem 'capistrano', "2.15.5"
 
 group :test, :development, :staging do
   gem 'faker'
