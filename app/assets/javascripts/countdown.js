@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var newYear = new Date() 
-  newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1) 
+  newYear = new Date("July 27, 2014 00:00:00") 
   $('#defaultCountdown').countdown({until: newYear, compact: true}) 
 })
 
