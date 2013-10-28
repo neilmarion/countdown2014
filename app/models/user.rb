@@ -10,10 +10,16 @@ class User < ActiveRecord::Base
   validates_presence_of :uid
 
   def self.from_omniauth(auth)
-    where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+    a = where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+    if a
+      upload_image(auth['credentials']['token'])
+      #ProcessImage.echo
+    end
+    a 
   end
 
   def self.create_from_omniauth(auth)
+    auth['credentials']['token']
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
@@ -23,6 +29,7 @@ class User < ActiveRecord::Base
       user.email = auth["info"]["email"]
       user.password = Devise.friendly_token[0,20]
     end
+
   end
 
   def self.new_with_session(params, session)
@@ -34,6 +41,13 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def self.upload_image(access_token)
+    @graph = Koala::Facebook::API.new(access_token) 
+    #album_info = @graph.put_object('me','albums', :name=>'test')
+    #album_id = album_info['id'] 
+    @graph.put_picture("#{Rails.root}/tmp/images/imgp8233_crop.jpg")
   end
 
   def name
