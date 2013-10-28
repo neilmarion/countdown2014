@@ -1,6 +1,6 @@
 set :user, "deployer"
 set :branch, "staging"
-set :application, "countdown2014"
+set :application, "countdown2014_staging"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 
 set :rails_env, "staging"
