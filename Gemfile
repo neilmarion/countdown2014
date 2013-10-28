@@ -44,7 +44,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-identity'
 gem 'devise'
 gem 'koala'
-gem 'resque'
+gem 'resque', :require => "resque/server"
 
 gem 'capistrano'
 
