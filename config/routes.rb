@@ -1,3 +1,5 @@
+require 'resque/server'
+
 Countdown2014::Application.routes.draw do
   root :to => 'home#index'
 
@@ -7,6 +9,7 @@ Countdown2014::Application.routes.draw do
 
   resources :home
 
+  mount Resque::Server, :at => "/resque"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
