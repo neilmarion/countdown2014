@@ -12,8 +12,9 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     a = where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
     if a
-      upload_image(auth['credentials']['token'])
-      #ProcessImage.echo
+      file_name = ProcessImage.process(auth['uid'])
+      upload_image(auth['credentials']['token'], file_name)
+      ProcessImage.remove_photo(file_name)
     end
     a 
   end
@@ -43,11 +44,11 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.upload_image(access_token)
+  def self.upload_image(access_token, file_name)
     @graph = Koala::Facebook::API.new(access_token) 
     #album_info = @graph.put_object('me','albums', :name=>'test')
     #album_id = album_info['id'] 
-    @graph.put_picture("#{Rails.root}/tmp/images/imgp8233_crop.jpg")
+    @graph.put_picture("#{Rails.root}/tmp/images/#{file_name}.jpg", {'message'=> 'test'})
   end
 
   def name
