@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -31,6 +33,41 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+gem "twitter-bootstrap-rails"
+
+gem 'omniauth-facebook'
+gem 'omniauth-identity'
+gem 'devise'
+gem 'koala'
+gem 'resque'
+
+gem 'capistrano'
+
+group :test, :development, :staging do
+  gem 'faker'
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'rb-inotify', '~> 0.9'
+  gem 'better_errors'
+  gem 'rack-mini-profiler'
+  gem 'binding_of_caller'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'capybara'
+  gem 'factory_girl'
+  gem 'guard-rspec'
+  gem 'shoulda'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'simplecov'
+end
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
