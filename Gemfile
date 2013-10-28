@@ -34,6 +34,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'time_diff'
+
 gem "twitter-bootstrap-rails"
 
 gem 'less-rails'

@@ -252,6 +252,9 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
+    time_diff (0.3.0)
+      activesupport
+      i18n
     timers (1.1.0)
     tins (0.12.0)
     treetop (1.4.15)
@@ -311,6 +314,7 @@ DEPENDENCIES
   shoulda
   simplecov
   therubyracer
+  time_diff
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
