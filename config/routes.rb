@@ -3,7 +3,7 @@ require 'resque/server'
 Countdown2014::Application.routes.draw do
   root :to => 'home#index'
 
-  match "facebook/canvas", :controller => :facebook, :action => :canvas, :as => 'facebook_canvas', :via => [:post] 
+  match "/", :controller => :facebook, :action => :canvas, :as => 'facebook_canvas', :via => [:post] 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "signout"},
                      controllers: {omniauth_callbacks: "users/omniauth_callbacks", 
